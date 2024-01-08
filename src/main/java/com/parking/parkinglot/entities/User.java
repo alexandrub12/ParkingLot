@@ -8,6 +8,8 @@ import java.util.Collection;
 public class User {
     private Long id;
 
+    Collection<Car> cars;
+
     @GeneratedValue
     @Id
     public Long getId() {
@@ -47,7 +49,6 @@ public class User {
 
     private String email;
     private String password;
-    private Collection<Car> cars;
 
     @OneToMany(mappedBy = "owner")
     public Collection<Car> getCars() {
