@@ -8,6 +8,7 @@
     <form method="post" action="${pageContext.request.contextPath}/Users">
         <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddUser">Add User</a>
+            <button type="submit" class="btn btn-primary btn-lg">Invoice</button>
         </c:if>
 
         <div class="container text-center">
@@ -26,5 +27,11 @@
             </c:forEach>
         </div>
     </form>
-
+    <c:if test="${not empty invoices}">
+        <h2>Invoices</h2>
+        <c:forEach var="username" items="${invoices}" varStatus="status">
+            ${status.index + 1}.${username}
+            <br/>
+        </c:forEach>
+    </c:if>
 </t:pageTemplate>
